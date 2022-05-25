@@ -33,6 +33,35 @@ export default function Description() {
         <hr />
       </ul>
       <div id="weather-condition">Clear</div>
+
+      <div className="row">
+        <div className="col-8">
+          <div className="clearfix temp">
+            <img
+              className="resize"
+              src="https://cdn-icons-png.flaticon.com/128/869/869869.png"
+              alt="Sunny"
+              id="icon"
+            />
+            <div className="temperature">
+              <strong id="temp">19</strong>
+              <span className="unit">°F</span>
+            </div>
+          </div>
+        </div>
+        <div className="col-3">
+          <ul>
+            <li>
+              {" "}
+              Wind:10 <span id="wind"> </span> mph{" "}
+            </li>
+            <li>
+              Humidity:5 <span id="humidity"></span>%
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr />
     </div>
   );
 }
