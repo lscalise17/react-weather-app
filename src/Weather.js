@@ -1,4 +1,5 @@
 import React from "react";
+import Forecast from "./Forecast";
 
 export default function Description() {
   return (
@@ -62,6 +63,7 @@ export default function Description() {
         </div>
       </div>
       <hr />
+      <Forecast />
     </div>
   );
 }
