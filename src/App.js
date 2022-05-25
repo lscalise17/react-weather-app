@@ -1,12 +1,11 @@
 import Weather from "./Weather";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
     <div className="App">
       <div className="Container">
-        <Weather defaultCity="Chicago" />
+        <Weather />
         <footer>
           <a
             href="https://github.com/lscalise17/weatherreact"
