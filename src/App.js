@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <div className="Container">
-        <Weather />
+        <Weather defaultCity="Chicago" />
         <footer>
           <a
             href="https://github.com/lscalise17/weatherreact"
