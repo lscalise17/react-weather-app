@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
 
 export default function Weather() {
-  const [weatherData, setWeatherData] = useState({ ready: false });
+  const [ready, setReady] = useState(false);
+  const [weatherData, setWeatherData] = useState(null);
   function handleResponse(response) {
     setWeatherData({
-      ready: true,
       temperature: response.data.main.temp,
       city: response.data.name,
-      wind: response.data.main.wind.speed,
-      date: new Date(response.data.dt * 1000),
     });
+    setReady(true);
   }
-  if (weatherData.ready) {
+  if (ready) {
     return (
       <div className="Description">
         <form id="search-form" className="mb-4">
@@ -38,11 +36,9 @@ export default function Weather() {
             </div>
           </div>
         </form>
-        <h1 id="city"> Chicago </h1>
+        <h1> Chicago </h1>
         <ul id="update">
-          <li>
-            Today: <FormattedDate date={weatherData.date} />{" "}
-          </li>
+          <li>Today: Saturday </li>
           <hr />
         </ul>
         <div>Clear</div>
@@ -66,7 +62,7 @@ export default function Weather() {
             <ul>
               <li>
                 {" "}
-                Wind: {weatherData.wind} <span id="wind"></span> mph{" "}
+                Wind: <span id="wind"></span> mph{" "}
               </li>
               <li>
                 Humidity: <span id="humidity"> </span>%
@@ -79,11 +75,9 @@ export default function Weather() {
       </div>
     );
   } else {
-    const apiKey = "247901f5cf32f02ac75b3bd33daf80d0";
+    const apiKey = "09ec95738393d0da1f446dc7befd7f43";
     let city = "Chicago";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
-
-    return "Loading..";
   }
 }
