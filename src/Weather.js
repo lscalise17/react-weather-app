@@ -2,21 +2,18 @@ import React, { useState } from "react";
 import axios from "axios";
 import Forecast from "./Forecast";
 
-export default function Weather(props) {
+export default function Weather() {
   const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState(null);
   function handleResponse(response) {
     setWeatherData({
       temperature: response.data.main.temp,
-      humidity: response.data.main.humidity,
       city: response.data.name,
       wind: response.data.main.wind.speed,
-      description: response.data.weather[0].description,
-      date: "Saturday: 9:00",
+      date: "Sunday",
     });
     setReady(true);
   }
-
   if (ready) {
     return (
       <div className="Description">
@@ -42,12 +39,12 @@ export default function Weather(props) {
             </div>
           </div>
         </form>
-        <h1 id="city">{weatherData.city} </h1>
+        <h1 id="city"> Chicago </h1>
         <ul id="update">
-          <li>Today: {weatherData.date}</li>
+          <li>Today: {weatherData.date} </li>
           <hr />
         </ul>
-        <div>{weatherData.description}</div>
+        <div>Clear</div>
 
         <div className="row">
           <div className="col-8">
@@ -55,7 +52,7 @@ export default function Weather(props) {
               <img
                 className="resize"
                 src="https://cdn-icons-png.flaticon.com/128/869/869869.png"
-                alt={weatherData.description}
+                alt=""
                 id="icon"
               />
               <div className="temperature">
@@ -68,24 +65,24 @@ export default function Weather(props) {
             <ul>
               <li>
                 {" "}
-                Wind: <span id="wind">{weatherData.wind} </span> mph{" "}
+                Wind: {weatherData.wind} <span id="wind"></span> mph{" "}
               </li>
               <li>
-                Humidity: <span id="humidity"> {weatherData.humidity}</span>%
+                Humidity: <span id="humidity"> </span>%
               </li>
             </ul>
           </div>
         </div>
 
         <hr />
-        <Forecast />
       </div>
     );
   } else {
-    const apiKey = "09ec95738393d0da1f446dc7befd7f43";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=imperial`;
+    const apiKey = "247901f5cf32f02ac75b3bd33daf80d0";
+    let city = "Chicago";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
 
-    return "loading..";
+    return "Loading..";
   }
 }
