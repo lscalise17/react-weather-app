@@ -1,20 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Forecast from "./Forecast";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [weatherData, setWeatherData] = useState(null);
+  const [weatherData, setWeatherData] = useState({ ready: false });
   function handleResponse(response) {
     setWeatherData({
+      ready: true,
       temperature: response.data.main.temp,
       city: response.data.name,
       wind: response.data.main.wind.speed,
-      date: "Sunday",
+      date: new Date(response.data.dt * 1000),
     });
-    setReady(true);
   }
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Description">
         <form id="search-form" className="mb-4">
@@ -41,7 +40,9 @@ export default function Weather() {
         </form>
         <h1 id="city"> Chicago </h1>
         <ul id="update">
-          <li>Today: {weatherData.date} </li>
+          <li>
+            Today: <FormattedDate date={weatherData.date} />{" "}
+          </li>
           <hr />
         </ul>
         <div>Clear</div>
