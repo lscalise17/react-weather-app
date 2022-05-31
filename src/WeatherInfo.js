@@ -22,7 +22,7 @@ export default function WeatherInfo(props) {
       <div className="report text-capitalize">{props.data.condition}</div>
 
       <div className="row">
-        <div className="col-8">
+        <div className="col-9">
           <div className="clearfix temp">
             <WeatherIcon code={props.data.icon} />
 
