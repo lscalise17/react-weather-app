@@ -15,6 +15,7 @@ export default function Weather(props) {
       date: new Date(response.data.dt * 1000),
       city: response.data.name,
       condition: response.data.weather[0].description,
+      icon: response.data.weather[0].icon,
     });
   }
   function handleSubmit(event) {

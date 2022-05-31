@@ -1,5 +1,6 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
   return (
@@ -9,8 +10,10 @@ export default function WeatherInfo(props) {
         <li>
           <div className="calendar">
             {" "}
-            Today:
-            <FormattedDate date={props.data.date} />{" "}
+            <span>
+              {" "}
+              Today: <FormattedDate date={props.data.date} />{" "}
+            </span>
           </div>{" "}
         </li>
         <hr />
@@ -20,16 +23,12 @@ export default function WeatherInfo(props) {
       <div className="row">
         <div className="col-8">
           <div className="clearfix temp">
-            <img
-              className="resize"
-              src="https://cdn-icons-png.flaticon.com/128/869/869869.png"
-              alt=""
-              id="icon"
-            />
-            <div className="temperature">
-              <strong>{Math.round(props.data.temperature)}</strong>
-              <span className="unit">°F</span>
-            </div>
+            <WeatherIcon code={props.data.icon} />
+
+            <strong className="number">
+              {Math.round(props.data.temperature)}
+            </strong>
+            <span className="unit">°F</span>
           </div>
         </div>
         <div className="col-3">

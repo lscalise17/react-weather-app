@@ -73,14 +73,18 @@ hr {
   text-align: left;
   margin-top: -10px;
   margin-left: -2px;
-  color: #e93e69;
+  color: rgb(13, 170, 245);
   font-size: 2em;
   text-transform: capitalize;
   font-style: italic;
 }
-.temp strong {
-  color: #ad48bc;
+strong {
+  color: #000000;
   font-size: 50px;
+  margin-left: 20px;
+}
+.calendar {
+  color: #153daa;
 }
 .temp .unit {
   font-size: 20px;
@@ -92,6 +96,7 @@ hr {
   cursor: default;
   text-decoration: none;
 }
+
 .forecast {
   margin-top: 20px;
   text-align: center;
