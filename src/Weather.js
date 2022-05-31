@@ -18,7 +18,7 @@ export default function Weather(props) {
     });
   }
   function handleSubmit(event) {
-    event.preventdefault();
+    event.preventDefault();
     search();
   }
 
