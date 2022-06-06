@@ -78,34 +78,12 @@ hr {
   text-transform: capitalize;
   font-style: italic;
 }
-strong {
-  color: rgb(109, 18, 194);
-  font-size: 40px;
-}
-.calendar {
-  color: #153daa;
-}
-
-.temp .unit {
-  font-size: 15px;
+.unit {
+  font-size: medium;
   position: relative;
   top: -20px;
 }
-.forecast {
-  margin-top: 20px;
-  text-align: center;
-}
-.dates {
-  font-size: 20px;
-  color: #0aaaf5;
-}
-.weather-temp {
-  font-size: 14px;
-  color: #0aaaf5;
-}
-.weather-temp-max {
-  font-weight: 800;
-}
-.weather-temp-min {
-  opacity: 0.9;
+strong {
+  color: rgb(109, 18, 194);
+  font-size: 40px;
 }
